@@ -7,6 +7,17 @@
   padding: 10px;
 }
 
+.issue-card__title{
+  padding-bottom: 10px;
+  font-size: 20px;
+  color: black;
+}
+
+.issue-card__description{
+  padding-bottom: 10px;
+  font-size: 15px;
+}
+
 .ui.search input {
   width: 100%;
   border-radius: 0 !important;

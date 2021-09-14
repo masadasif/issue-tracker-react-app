@@ -1,23 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Img from "../../images/issue.png";
+import moment from "moment";
 
 const IssueCard = (props) => {
   const { id, attributes } = props.issue;
-  const { title, description, status } = attributes;
+  const { title, description, status, created_at } = attributes;
 
   return (
     <div className="item">
-      <img className="ui avatar image" src={Img} alt="Img" style={{ marginTop: "12px" }}/>
-      <div className="content">
-        <Link
-          to={{ pathname: `/issues/${id}`, state: { issue: props.issue } }}
-        >
-          <div className="header">{title}</div>
-          <div>{description}</div>
-          <div>{status}</div>
-        </Link>
-      </div>
+      <Link
+        to={{ pathname: `/issues/${id}`, state: { issue: props.issue } }}
+      >
+        <div className="issue-card__title">{title}</div>
+        <div className="issue-card__description">{description}</div>
+        {
+          status === "open" ? 
+          <div className="ui blue label">{status}</div> : 
+          <div className="ui red label">{status}</div>
+        }
+        <div className="ui label">{moment(created_at).format("DD/MM/YYYY - hh:mm A")}</div>
+      </Link>
+
       <i
         className="trash alternate outline icon"
         style={{ color: "red", marginTop: "7px", marginLeft: "10px" }}
@@ -32,7 +35,9 @@ const IssueCard = (props) => {
       <Link
           to={{ pathname: `/issues/${id}`, state: { issue: props.issue } }}
         >
-        <i className="info circle icon" style={{ color: "green", marginTop: "8px", marginRight: "12px" }}></i>
+        <i className="info circle icon" 
+          style={{ color: "green", marginTop: "8px", marginRight: "12px" }}
+        ></i>
       </Link>
     </div>
   );
