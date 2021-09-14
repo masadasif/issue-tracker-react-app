@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class CreateIssue extends React.Component {
   state = {
@@ -46,13 +47,18 @@ class CreateIssue extends React.Component {
           </div>
           <div className="field">
             <label>Status</label>
-            <select className="ui dropdown" onChange={(e) => this.setState({ status: parseInt(e.target.value) })}>
+            <select className="ui dropdown" onChange={(e) => this.setState({ status: e.target.value })}>
               <option value="" disabled selected>Select</option>
-              <option value="0">Close</option>
-              <option value="1">Open</option>
+              <option value="closed">Closed</option>
+              <option value="open">Open</option>
             </select>
           </div>
           <button className="ui button blue">Add Issue</button>
+          <Link to="/">
+            <button className="ui button blue center">
+              Back to Issue List
+            </button>
+          </Link>
         </form>
       </div>
     );

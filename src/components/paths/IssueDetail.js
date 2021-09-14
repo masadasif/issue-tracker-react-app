@@ -6,11 +6,12 @@ const IssueDetail = (props) => {
   const { title, description, status } = attributes;
   return (
     <div className="main">
-      <div className="ui card centered">
+      <div className="ui card centered padding">
         <div className="content">
-          <div className="header">{title}</div>
-          <div className="description">{description}</div>
-          <div className="status">{status}</div>
+          <h2>Title: {title}</h2>
+          <div><b>Description:</b> {description}</div>
+          <br></br>
+          <div className="ui label">{status}</div>
         </div>
       </div>
       <div className="center-div">

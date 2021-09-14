@@ -26,8 +26,13 @@ const IssueCard = (props) => {
       <Link to={{ pathname: `/edit`, state: { issue: props.issue } }}>
         <i
           className="edit alternate outline icon"
-          style={{ color: "blue", marginTop: "7px" }}
+          style={{ color: "#2185d0", marginTop: "7px" }}
         ></i>
+      </Link>
+      <Link
+          to={{ pathname: `/issues/${id}`, state: { issue: props.issue } }}
+        >
+        <i className="info circle icon" style={{ color: "green", marginTop: "8px", marginRight: "12px" }}></i>
       </Link>
     </div>
   );

@@ -27,7 +27,7 @@ function App() {
 
   const updateIssueHandler = async (issue) => {
     const response = await api.put(`/issues/${issue.id}`, issue);
-    const { id, title, description, status } = response.data.data;
+    const { id } = response.data.data;
     setIssues(
       issues.map((issue) => {
         return issue.id === id ? { ...response.data.data } : issue;
